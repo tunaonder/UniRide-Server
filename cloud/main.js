@@ -1,4 +1,4 @@
 
 Parse.Cloud.define('hello', function(req, res) {
-  res.success('Hello');
+  res.success('Hello from private');
 });
