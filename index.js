@@ -20,15 +20,7 @@ var api = new ParseServer({
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
-  push: {
-    ios: {
-      pfx: 'certs/personalCert.p12', // The filename of private key and certificate in PFX or PKCS12 format from disk  
-      cert: 'certs/BilkentRide.cer', // If not using the .p12 format, the path to the certificate PEM to load from disk
-      key: '', // If not using the .p12 format, the path to the private key PEM to load from disk
-      bundleId: 'com.tunaonder.BilkentRide', // The bundle identifier associate with your app
-      production: false // Specifies which environment to connect to: Production (if true) or Sandbox
-    }
-  }
+
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
