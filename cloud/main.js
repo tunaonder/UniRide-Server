@@ -7,7 +7,7 @@ Parse.Cloud.define('hello', function(req, res) {
 Parse.Cloud.define("pushToAll", function(request, response) {
 
 
-  var pushQuery = new Parse.Query(Parse.Installation);
+/*  var pushQuery = new Parse.Query(Parse.Installation);
   // pushQuery.containedIn("deviceType", ["ios", "android"]); // errors if no iOS certificate
 
   // Send push notification to query
@@ -26,5 +26,25 @@ Parse.Cloud.define("pushToAll", function(request, response) {
       response.error(error);
     },
     useMasterKey: true
-  });
+  }); */
+  
+  // With promises
+Parse.Push.send({
+  where: { "deviceType": {
+              "$in": [
+                "ios",
+                "android"
+              ]}},
+  data: { "title": "The Shining",
+            "alert": "All work and no play makes Jack a dull boy." }
+}, 
+{ useMasterKey: true })
+.then(function() {
+  // Push sent!
+}, function(error) {
+  // There was a problem :(
+});
+
+
+  
 });
