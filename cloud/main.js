@@ -37,8 +37,16 @@ Parse.Push.send({
               ]}},
   data: { "title": "The Shining",
             "alert": "All work and no play makes Jack a dull boy." }
-}, 
-{ useMasterKey: true })
+}, {
+    success: function() {
+      // Push was successful
+      console.log("Message was sent successfully");
+      response.success('true');
+    },
+    error: function(error) {
+      response.error(error);
+    },
+ useMasterKey: true })
 .then(function() {
   // Push sent!
 }, function(error) {
