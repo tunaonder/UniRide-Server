@@ -45,7 +45,7 @@ Parse.Push.send({
   response.success('senddd');
 }, function(error) {
   // There was a problem :(
-    response.error(error);
+    response.error("asdasdasd");
 });
 
 
