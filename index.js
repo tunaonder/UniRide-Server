@@ -23,7 +23,7 @@ var api = new ParseServer({
   push: {    
     ios: {
       pfx: __dirname + '/cert/PushCertificate.p12', // The filename of private key and certificate in PFX or PKCS12 format from disk
-      bundleId: 'com.tunaonder.BilkentRide', // The bundle identifier associate with your app
+      bundleId: 'com.tunaonder.UniRide', // The bundle identifier associate with your app
       production: false // Specifies which environment to connect to: Production (if true) or Sandbox
     }
   }
