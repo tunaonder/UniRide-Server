@@ -23,7 +23,7 @@ Parse.Push.send({
   response.success('senddd');
 }, function(error) {
   // There was a problem :(
-    response.error("change");
+    response.error("change2");
 });
 
 
