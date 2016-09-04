@@ -13,8 +13,8 @@ Parse.Push.send({
                 "ios",
                 "android"
               ]}},
-  data: { "title": "The Shining",
-            "alert": "All work and no play makes Jack a dull boy." }
+  data: { "title": "Nuran",
+            "alert": "Nuriye Naber." }
 }, 
 {
  useMasterKey: true })
