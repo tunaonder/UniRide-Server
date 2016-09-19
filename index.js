@@ -5,6 +5,12 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
+// Client-keys like the javascript key or the .NET key are not necessary with parse-server
+// If you wish you require them, you can set them as options in the initialization above:
+// javascriptKey, restAPIKey, dotNetKey, clientKey
+
+var app = express();
+
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 if (!databaseUri) {
@@ -30,26 +36,22 @@ var api = new ParseServer({
 
 
 });
-// Client-keys like the javascript key or the .NET key are not necessary with parse-server
-// If you wish you require them, you can set them as options in the initialization above:
-// javascriptKey, restAPIKey, dotNetKey, clientKey
 
-var app = express();
+
+app.use('/parse', api);
 
 // Serve static assets from the /public folder
-app.use('/public', express.static(path.join(__dirname, '/public')));
+//app.use('/public', express.static(path.join(__dirname, '/public')));
 
 // Serve the Parse API on the /parse URL prefix
-var mountPath = process.env.PARSE_MOUNT || '/parse';
+//var mountPath = process.env.PARSE_MOUNT || '/parse';
 //var mountPath = '/parse';
-app.use(mountPath, api);
+//app.use(mountPath, api);
 
-/*app.use('/parse', new ParseServer({...}), function(req, res, next) {
-    // This will get called after every parse request 
-    // and stops the request propagation by doing nothing
-   next();
-
-}); */
+var port = 1337;
+app.listen(port, function() {
+  console.log('parse-server-example running on port ' + port + '.');
+});
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
@@ -62,11 +64,11 @@ app.get('/test', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/test.html'));
 });
 
-var port = process.env.PORT || 1337;
+/*var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');
-});
+});*/
 
 // This will enable the Live Query real-time server
 ParseServer.createLiveQueryServer(httpServer);
