@@ -40,8 +40,8 @@ var app = express();
 app.use('/public', express.static(path.join(__dirname, '/public')));
 
 // Serve the Parse API on the /parse URL prefix
-//var mountPath = process.env.PARSE_MOUNT || '/parse';
-var mountPath = '/parse';
+var mountPath = process.env.PARSE_MOUNT || '/parse';
+//var mountPath = '/parse';
 app.use(mountPath, api);
 
 /*app.use('/parse', new ParseServer({...}), function(req, res, next) {
