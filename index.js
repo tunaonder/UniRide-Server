@@ -47,6 +47,8 @@ app.use('/public', express.static(path.join(__dirname, '/public')));
 app.use('/parse', new ParseServer({}), function(req, res, next) {
     // This will get called after every parse request 
     // and stops the request propagation by doing nothing
+    parse(req, res, next);
+
 });
 
 // Parse Server plays nicely with the rest of your web routes
