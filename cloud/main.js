@@ -4,7 +4,7 @@ Parse.Cloud.define('hello', function(req, res) {
 });
 
 
-Parse.Cloud.define("pushToAll", function(request, response) {
+Parse.Cloud.define("pushToAll2", function(request, response) {
 
   // With promises
 Parse.Push.send({
@@ -13,8 +13,8 @@ Parse.Push.send({
                 "ios",
                 "android"
               ]}},
-  data: { "title": "Nuran",
-            "alert": "Nuriye Naber." }
+  data: { "title": "Nurannnnnn",
+            "alert": "Nuriye Nabersadsdasdaasdasdasd" }
 }, 
 {
  useMasterKey: true })
