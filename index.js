@@ -48,10 +48,7 @@ app.use('/parse', api);
 //var mountPath = '/parse';
 //app.use(mountPath, api);
 
-var port = 1337;
-app.listen(port, function() {
-  console.log('parse-server-example running on port ' + port + '.');
-});
+
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
@@ -64,11 +61,11 @@ app.get('/test', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/test.html'));
 });
 
-/*var port = process.env.PORT || 1337;
+var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
     console.log('parse-server-example running on port ' + port + '.');
-});*/
+});
 
 // This will enable the Live Query real-time server
 ParseServer.createLiveQueryServer(httpServer);
