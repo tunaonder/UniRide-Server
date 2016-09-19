@@ -41,15 +41,15 @@ app.use('/public', express.static(path.join(__dirname, '/public')));
 
 // Serve the Parse API on the /parse URL prefix
 //var mountPath = process.env.PARSE_MOUNT || '/parse';
-//var mountPath = '/parse';
-//app.use(mountPath, api);
+var mountPath = '/parse';
+app.use(mountPath, api);
 
-app.use('/parse', new ParseServer({...}), function(req, res, next) {
+/*app.use('/parse', new ParseServer({...}), function(req, res, next) {
     // This will get called after every parse request 
     // and stops the request propagation by doing nothing
    next();
 
-});
+}); */
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
